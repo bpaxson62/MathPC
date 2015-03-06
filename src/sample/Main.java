@@ -1,42 +1,50 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.geometry.Side;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
 public class Main extends Application {
 
-    //LAUNCH
-    public static void main(String[] args) {
-        launch(args);
+    private void init(Stage primaryStage) {
+        Group root = new Group();
+        primaryStage.setScene(new Scene(root));
+        BorderPane borderPane = new BorderPane();
+        final TabPane tabPane = new TabPane();
+        tabPane.setPrefSize(520, 360);
+        tabPane.setSide(Side.TOP);
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        final Tab tab1 = new Tab();
+        tab1.setText("Geometry");
+
+        tab1.setContent(new Rectangle(200,200, Color.LIGHTSTEELBLUE));
+
+        //tab1.setContent();
+
+        final Tab tab2 = new Tab();
+        tab2.setText("Quadratic");
+        final Tab tab3 = new Tab();
+        tab3.setText("Agebra");
+        final Tab tab4 = new Tab();
+        tab4.setText("Plot Function");
+
+
+
+        tabPane.getTabs().addAll(tab1, tab2, tab3, tab4);
+        borderPane.setCenter(tabPane);
+        root.getChildren().add(borderPane);
     }
 
-    @Override
-    public void start(Stage primaryStage) {
-
-        primaryStage.setTitle("Math PC");
-
-        Button btn = new Button();
-        btn.setText("Times Table");
-
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Test");
-            }
-        });
-
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+    @Override public void start(Stage primaryStage) throws Exception {
+        init(primaryStage);
         primaryStage.show();
-
-        StackPane root2 = new StackPane();
-       // root2.getChildren().add(btn2);
     }
+    public static void main(String[] args) { launch(args); }
 }
