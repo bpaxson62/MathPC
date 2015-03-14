@@ -1,4 +1,4 @@
-package sample;
+package math_games;
 
 /**
  * Created by geoffreykuhn on 3/6/15.
