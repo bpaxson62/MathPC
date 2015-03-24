@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import math_screens.QuadraticScreen;
+import math_screens.MainScreen;
 
 public class Main extends Application {
 
@@ -53,7 +53,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
-        rootController.changeState(new QuadraticScreen());
+        rootController.changeState(new MainScreen());
         //init(primaryStage);
         //primaryStage.show();
     }
