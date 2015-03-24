@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 /**
  * Created by brian on 3/14/2015.
  */
-public class QuadraticScreen extends MathScreen{
+public class QuadraticScreen extends MathGame{
 
     public QuadraticScreen(){
         super();

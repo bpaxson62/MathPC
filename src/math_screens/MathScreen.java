@@ -1,7 +1,7 @@
 package math_screens;
 
 import javafx.scene.Parent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import launch.Configurations;
@@ -12,9 +12,9 @@ import java.util.Random;
  * Created by brian on 3/14/2015.
  */
 public class MathScreen extends Parent{
-    private Pane myPane;
+    private AnchorPane myPane;
     public MathScreen(){
-        myPane = new Pane();
+        myPane = new AnchorPane();
         myPane.prefHeight(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
         myPane.prefWidth(Configurations.MAIN_SCREEN_WIDTH + 2* Configurations.WINDOW_BOARDER);
         Random rand = new Random(System.currentTimeMillis());
