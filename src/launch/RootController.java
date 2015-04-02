@@ -1,6 +1,8 @@
 package launch;
 
+import javafx.collections.ObservableList;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 
 public class RootController{
@@ -55,6 +57,8 @@ public class RootController{
 
     public void changeState(Parent mathScreen) {
         //Group myGroup = new Group();
+        ObservableList<Node> abc = root.getChildren();
+        root.getChildren().removeAll(abc);
         root.getChildren().add(mathScreen);
         //root.setCenter(new Level(0));
         //root.setCenter(myGroup);

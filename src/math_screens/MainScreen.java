@@ -19,6 +19,10 @@ public class MainScreen extends MathScreen {
     Button geometryButton;
     Button functionButton;
     Button quadraticButton;
+    private static AlgebraScreen algebraScreen;
+    private static FunctionPlotScreen functionPlotScreen;
+    private static GeometryScreen geometryScreen;
+    private static QuadraticScreen quadraticScreen;
     public MainScreen() {
         super();
 
@@ -48,13 +52,25 @@ public class MainScreen extends MathScreen {
             @Override
             public void handle(ActionEvent e){
                 if (e.getSource() == algebraButton){
-                    Main.getGameController().changeState(new AlgebraScreen());
-                }else if(e.getSource() == geometryButton){
-                    Main.getGameController().changeState(new GeometryScreen());
+                    if (algebraScreen==null){
+                        algebraScreen = new AlgebraScreen();
+                    }
+                    Main.getGameController().changeState(algebraScreen);
+            }else if(e.getSource() == geometryButton){
+                    if (geometryScreen==null){
+                        geometryScreen = new GeometryScreen();
+                    }
+                    Main.getGameController().changeState(geometryScreen);
                 }else if(e.getSource() == functionButton){
-                    Main.getGameController().changeState(new FunctionPlotScreen());
+                    if (algebraScreen==null){
+                        functionPlotScreen = new FunctionPlotScreen();
+                    }
+                    Main.getGameController().changeState(functionPlotScreen);
                 }else if(e.getSource() == quadraticButton){
-                    Main.getGameController().changeState(new QuadraticScreen());
+                    if (quadraticScreen==null){
+                        quadraticScreen = new QuadraticScreen();
+                    }
+                    Main.getGameController().changeState(quadraticScreen);
                 }
             }
         };

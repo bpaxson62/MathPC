@@ -15,14 +15,17 @@ import java.io.InputStream;
  * Created by brian on 3/24/2015.
  */
 public class MathGame extends MathScreen{
-
+    private static MainScreen mainScreen;
     public MathGame(){
         super();
 
         EventHandler actionListener = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e){
-                Main.getGameController().changeState(new MainScreen());
+                if(mainScreen == null){
+                    mainScreen = new MainScreen();
+                }
+                Main.getGameController().changeState(mainScreen);
             }
         };
 
@@ -41,7 +44,7 @@ public class MathGame extends MathScreen{
         myStack.setPrefWidth(120);
         myStack.getChildren().add(backImage);
         myStack.getChildren().add(backButton);
-        myStack.setLayoutX(555);
+        myStack.setLayoutX(1250);
 //        HBox hAlign = new HBox();
 //        hAlign.getChildren().add(myStack);
 //        hAlign.setAlignment(Pos.TOP_RIGHT);

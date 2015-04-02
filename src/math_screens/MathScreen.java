@@ -15,16 +15,19 @@ public class MathScreen extends Parent{
     private AnchorPane myPane;
     public MathScreen(){
         myPane = new AnchorPane();
-        myPane.prefHeight(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
+//        primaryStage.setWidth(Configurations.MAIN_SCREEN_WIDTH + 2*Configurations.WINDOW_BOARDER);
+//        primaryStage.setHeight(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
+
         myPane.prefWidth(Configurations.MAIN_SCREEN_WIDTH + 2* Configurations.WINDOW_BOARDER);
+        myPane.prefHeight(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
         Random rand = new Random(System.currentTimeMillis());
         String eq1 = "y = ";
         String eq2 = "x + ";
 
 
         for (int i = 0; i < 100; i++) {
-            int x = rand.nextInt(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
-            int y = rand.nextInt(Configurations.MAIN_SCREEN_WIDTH + 2* Configurations.WINDOW_BOARDER);
+            int x = rand.nextInt(Configurations.MAIN_SCREEN_WIDTH + 2*Configurations.WINDOW_BOARDER);
+            int y = rand.nextInt(Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
             int red = rand.nextInt(255);
             int green = rand.nextInt(255);
             int blue = rand.nextInt(255);
