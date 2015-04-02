@@ -149,6 +149,7 @@ public class AlgebraScreen extends MathGame {
 
     private void addScore() {
         myScoreTextValue.setText(Integer.toString(Integer.valueOf(myScoreTextValue.getText()) + 1));
+        myScoreEq.setText(myEquation);
         createAnswers();
         for(int i = 0; i < answers.length; i++){
             circles.get(i).myText.setText(Integer.toString(answers[i]));
@@ -261,6 +262,7 @@ public class AlgebraScreen extends MathGame {
     public void stop() {
         timeline.stop();
         timer.stop();
+        
     }
 
 
