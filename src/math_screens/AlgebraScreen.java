@@ -116,7 +116,7 @@ public class AlgebraScreen extends MathGame {
                 public void handle(MouseEvent event) {
 //                while (true) {
 //                    checkShapeIntersection(circle);
-                    System.out.println(Integer.parseInt(circles.get(myIndex).myText.getText()));
+
                     if (answer.equals(Integer.parseInt(circles.get(myIndex).myText.getText()))) {
                         addScore();
 
@@ -148,13 +148,16 @@ public class AlgebraScreen extends MathGame {
     }
 
     private void addScore() {
-        myScoreTextValue.setText(Integer.toString(Integer.valueOf(myScoreTextValue.getText()) + 1));
-        myScoreEq.setText(myEquation);
+
+
         createAnswers();
-        for(int i = 0; i < answers.length; i++){
+
+        for (int i = 0; i < answers.length; i++) {
             circles.get(i).myText.setText(Integer.toString(answers[i]));
             circles.get(i).ball.setFill(Color.web("1c89f4"));
         }
+        myScoreEq.setText(myEquation);
+        myScoreTextValue.setText(Integer.toString(Integer.valueOf(myScoreTextValue.getText()) + 1));
     }
 
     private void subtractScore() {
@@ -167,13 +170,13 @@ public class AlgebraScreen extends MathGame {
         final StackPane tempPane;
         timeline.setCycleCount(Timeline.INDEFINITE);
         KeyFrame kf;
-        kf = new KeyFrame(Duration.millis(3), new EventHandler<ActionEvent>() {
+        kf = new KeyFrame(Duration.millis(20), new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 for (int i = 0; i < circles.size(); i++) {
                     checkBounds(circles.get(i));
                     circleIntersection(circles.get(i));
-                    circles.get(i).pane.setTranslateX(circles.get(i).pane.getTranslateX() + circles.get(i).directionX * .5);
-                    circles.get(i).pane.setTranslateY(circles.get(i).pane.getTranslateY() + circles.get(i).directionY * .5);
+                    circles.get(i).pane.setTranslateX(circles.get(i).pane.getTranslateX() + circles.get(i).directionX * 5);
+                    circles.get(i).pane.setTranslateY(circles.get(i).pane.getTranslateY() + circles.get(i).directionY * 5);
                 }
 
             }
@@ -209,19 +212,70 @@ public class AlgebraScreen extends MathGame {
         answer = myAnswer;
     }
 
-    public static void checkBounds(Ball myBall) {
-        if (myBall.pane.getBoundsInParent().getMinX() <= 0) {
+    public void checkBounds(Ball myBall) {
+        /*
+        if ball hits walls
+         */
+//        System.out.println(getLayoutX());
+//        System.out.println(getBoundsInLocal().getMaxX());
+////        System.out.println(getLayoutY());
+//        if (myBall.pane.getBoundsInParent().getMinX() <= getBoundsInLocal().getMinX() && myBall.pane.getBoundsInParent().getMinX() >= -10) {
+//            myBall.directionX = 1;
+//        }
+//        if (myBall.pane.getBoundsInParent().getMaxX() >= getBoundsInLocal().getMaxX() && myBall.pane.getBoundsInParent().getMaxX() <= 1410) {
+//            myBall.directionX = -1;
+//        }
+//        if (myBall.pane.getBoundsInParent().getMinY() <= getBoundsInLocal().getMinY() && myBall.pane.getBoundsInParent().getMinY() >= -30) {
+//            myBall.directionY = 1;
+//        }
+//        if (myBall.pane.getBoundsInParent().getMaxY() >= getBoundsInLocal().getMaxY() - myBall.ball.getRadius()
+//                && myBall.pane.getBoundsInParent().getMaxY() <= 730 - myBall.ball.getRadius()) {
+//            myBall.directionY = -1;
+//        }
+
+        if (myBall.pane.getBoundsInParent().getMinX() <= 0 && myBall.pane.getBoundsInParent().getMinX() >= -5) {
             myBall.directionX = 1;
         }
-        if (myBall.pane.getBoundsInParent().getMaxX() >= 1400) {
+        if (myBall.pane.getBoundsInParent().getMaxX() >= 1400 && myBall.pane.getBoundsInParent().getMaxX() <= 1405) {
             myBall.directionX = -1;
         }
-        if (myBall.pane.getBoundsInParent().getMinY() <= 0) {
+        if (myBall.pane.getBoundsInParent().getMinY() <= 0 && myBall.pane.getBoundsInParent().getMinY() >= -5) {
             myBall.directionY = 1;
         }
-        if (myBall.pane.getBoundsInParent().getMaxY() >= 700 - myBall.ball.getRadius()) {
+        if (myBall.pane.getBoundsInParent().getMaxY() >= 700 - myBall.ball.getRadius()
+                && myBall.pane.getBoundsInParent().getMaxY() <= 705 - myBall.ball.getRadius()) {
             myBall.directionY = -1;
         }
+
+
+        /*
+        if ball leaves screen
+         */
+        if ( myBall.pane.getBoundsInParent().getMinX() <= -10) {
+            myBall.pane.setLayoutX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
+            myBall.pane.setLayoutY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+        }
+        if (myBall.pane.getBoundsInParent().getMaxX() >= 1405) {
+            myBall.pane.setLayoutX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
+            myBall.pane.setLayoutY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+        }
+        if (myBall.pane.getBoundsInParent().getMinY() <= -10) {
+            myBall.pane.setLayoutX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
+            myBall.pane.setLayoutY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+        }
+        if (myBall.pane.getBoundsInParent().getMaxY() >= 710 - myBall.ball.getRadius()) {
+            myBall.pane.setLayoutX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
+            myBall.pane.setLayoutY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+        }
+
+//        if (myBall.pane.getBoundsInParent().getMaxY() >= 730 - myBall.ball.getRadius()
+//                || myBall.pane.getBoundsInParent().getMinY() <= -30
+//                || myBall.pane.getBoundsInParent().getMaxX() <= 1430
+//                || myBall.pane.getBoundsInParent().getMinX() <= -30) {
+//            myBall.pane.setLayoutX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
+//            myBall.pane.setLayoutY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+////        }
+//        }
     }
 
     private void circleIntersection(Ball myBall) {
@@ -239,12 +293,12 @@ public class AlgebraScreen extends MathGame {
                     myShape.directionX *= -1;
                     myShape.directionY *= -1;
                     myBall.activeBound = false;
-                    new Timer().schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            myShape.activeBound = true;
-                        }
-                    }, 500);
+//                    new Timer().schedule(new TimerTask() {
+//                        @Override
+//                        public void run() {
+//                            myShape.activeBound = true;
+//                        }
+//                    }, 2000);
                 }
             }
         }
@@ -262,7 +316,7 @@ public class AlgebraScreen extends MathGame {
     public void stop() {
         timeline.stop();
         timer.stop();
-        
+
     }
 
 
