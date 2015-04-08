@@ -16,7 +16,6 @@ public class RootController{
         this.root = mathScreen;
     }
 
-
     public void setScore(int score) {
         this.score = score;
     }
@@ -48,9 +47,6 @@ public class RootController{
        // changeState(1);
     }
 
-
-
-
     public void increaseScore(){
 
     }
@@ -65,7 +61,6 @@ public class RootController{
 
         //border.setCenter();
     }
-
 
 
 }

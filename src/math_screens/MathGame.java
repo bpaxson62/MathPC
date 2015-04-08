@@ -37,6 +37,7 @@ public class MathGame extends MathScreen{
         ImageView backImage = new ImageView(back);
         Button backButton = new Button();
         backButton.setPrefHeight(120);
+
         backButton.setPrefWidth(120);
         backButton.setStyle("-fx-background-color: transparent;");
         backButton.setOnAction(actionListener);

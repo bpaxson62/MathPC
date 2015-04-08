@@ -20,7 +20,9 @@ import javafx.util.Duration;
 import launch.Configurations;
 import utilities.Utilities;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 /**
  * Created by brian on 3/14/2015.
@@ -246,7 +248,6 @@ public class AlgebraScreen extends MathGame {
                 && myBall.pane.getBoundsInParent().getMaxY() <= 705 - myBall.ball.getRadius()) {
             myBall.directionY = -1;
         }
-
 
         /*
         if ball leaves screen
