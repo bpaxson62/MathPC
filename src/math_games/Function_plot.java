@@ -5,5 +5,6 @@ package math_games;
  */
 public class Function_plot {
 
-    //placeholder for the function plotter page
+
+
 }
