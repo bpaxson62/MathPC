@@ -63,7 +63,7 @@ public class MainScreen extends MathScreen {
                     Main.getGameController().changeState(geometryScreen);
                 }else if(e.getSource() == functionButton){
                     if (algebraScreen==null){
-                        functionPlotScreen = new FunctionPlotScreen();              
+                        functionPlotScreen = new FunctionPlotScreen();
                     }
                     Main.getGameController().changeState(functionPlotScreen);
                 }else if(e.getSource() == quadraticButton){

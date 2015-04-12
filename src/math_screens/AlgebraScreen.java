@@ -18,6 +18,7 @@ import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import launch.Configurations;
+import Utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -247,7 +248,6 @@ public class AlgebraScreen extends MathGame {
                 && myBall.pane.getBoundsInParent().getMaxY() <= 705 - myBall.ball.getRadius()) {
             myBall.directionY = -1;
         }
-
 
         /*
         if ball leaves screen
