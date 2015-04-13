@@ -73,19 +73,28 @@ public class FunctionPlotScreen extends MathGame{
         
         text_grid2.setConstraints(t2, 0, 0);
         text_grid2.setConstraints(function_field3, 0, 1);
+        text_grid2.setConstraints(submit2, 1, 0);
 ///
         GridPane.setConstraints(t,0,0);
 
         GridPane.setConstraints(function_field,0,0);
         GridPane.setConstraints(function_field2,1,0);
         GridPane.setConstraints(submit,0,1);
+        
+///
 
         getChildren().add(grid);
         getChildren().add(text_grid);
-
+///
+        getChildren().add(grid2);
+        getChildren().add(text_grid2);
+///
+        grid2.getChildren().addAll(function_field,submit2);
+        text_grid2.getChildren().addAll(t2);
+        
+///
         grid.getChildren().addAll(function_field,function_field2, submit);
         text_grid.getChildren().addAll(t);
-
 
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
