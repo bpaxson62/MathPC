@@ -110,8 +110,7 @@ public class QuadraticScreen extends MathGame{
         final LineChart<Number,Number> lineChart2 = new LineChart<Number,Number>(xAxis,yAxis);//2
         
         final LineChart<Number,Number> lineChart3 = new LineChart<Number,Number>(xAxis,yAxis);//3
-
-  
+ 
         lineChart.setPrefHeight(400);
         lineChart.setPrefWidth(400);
        
@@ -129,21 +128,39 @@ public class QuadraticScreen extends MathGame{
         XYChart.Series series2 = new XYChart.Series();
         XYChart.Series series3 = new XYChart.Series();
 
-
         series.setName("A");
         series2.setName("B");
         series3.setName("C");
 
 
         //populating the series with data
-        series.getData().add(new XYChart.Data(0, 0));
-        series.getData().add(new XYChart.Data(0, 0+1)); 
+        //f(x) = ax^2 + bx + c
+        double c = -3;
+        double b = 2;
+        double a = 1;
         
-        series2.getData().add(new XYChart.Data(0, 0+1)); 
-        series2.getData().add(new XYChart.Data(0, 0+1)); 
+        double x = (-(b/(2*a)));
+        
+        System.out.println("The value of x: "+  x); 
+        
+        double vertex_y =(a*Math.pow(x,2))+(b*x)+c;
+                
+        System.out.println("VERTEX "+vertex_y);
+        double y_int = (a*0)+(b*0)+c;
+        System.out.println("y_int: "+y_int);
 
-        series3.getData().add(new XYChart.Data(0, 0+1)); 
-        series3.getData().add(new XYChart.Data(0, 0+1)); 
+        series.getData().add(new XYChart.Data(x, vertex_y));
+        series.getData().add(new XYChart.Data(c, 0)); 
+        series.getData().add(new XYChart.Data(a, 0)); 
+
+        
+        series2.getData().add(new XYChart.Data(x, vertex_y));
+        series2.getData().add(new XYChart.Data(c, 0)); 
+        series2.getData().add(new XYChart.Data(a, 0)); 
+
+        series3.getData().add(new XYChart.Data(x, vertex_y));
+        series3.getData().add(new XYChart.Data(c, 0)); 
+        series3.getData().add(new XYChart.Data(a, 0)); 
         
         lineChart.getData().add(series);
         lineChart2.getData().add(series2);  
@@ -160,7 +177,7 @@ public class QuadraticScreen extends MathGame{
         plot_grid.setVgap(30);
         plot_grid.setHgap(50);
 
-        plot_grid.setLayoutX(50);
+        plot_grid.setLayoutX(10);
         plot_grid.setLayoutY(20);
         
         plot_grid.setConstraints(lineChart, 0, 0);
