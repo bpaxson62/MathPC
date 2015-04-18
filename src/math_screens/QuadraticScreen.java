@@ -4,21 +4,27 @@ package math_screens;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import launch.Configurations;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 
 import java.awt.*;
 import java.math.BigDecimal;
+import java.util.Random;
 
 import static java.lang.Math.*;
 
 
 public class QuadraticScreen extends MathGame{
-
+	
     TextField operand1 = new TextField("0");
     TextField operand2 = new TextField("0");
     TextField operand3 = new TextField("0");
@@ -43,11 +49,15 @@ public class QuadraticScreen extends MathGame{
     static double op1 =0;
     static double op2 =0;
     static double op3 =0;
-/*
-    Double op1 = Double.valueOf(String.valueOf(operand2));
-    Double op2 = Double.valueOf(String.valueOf(operand2));
-    Double op3 = Double.valueOf(String.valueOf(operand3));
-*/
+    
+    static double a=0;
+    static double b=0;
+    static double c=0;
+    static double x=0;
+    static double vertex_y=0;
+    static double y_int=0;
+
+
     Double extractDouble(final String possibleNumber)
     {
         Double extractedNumber;
@@ -87,10 +97,145 @@ public class QuadraticScreen extends MathGame{
 
         return root2;
     }
+    
+    public static void generate_num(){
+   	   //populating the series with data
+       //f(x) = ax^2 + bx + c
+       int max=10;
+       int min= 0;
+       
+       int max1=0;
+       int min1= -10;
+       
+       Random random = new Random();
+       a = random.nextInt(max - min + 1) + min;
+       System.out.println("The value of a from method: "+  a); 
+
+       b = random.nextInt(max - min + 1) + min;
+       System.out.println("The value of b from method: "+  b); 
+
+       c = random.nextInt(max1 - min1 + 1) + min1;
+       System.out.println("The value of c from method: "+  c); 
+
+       x = (-(b/(2*a)));
+       
+       System.out.println("The value of x: "+  x); 
+       
+       vertex_y =((a*Math.pow(x,2))+(b*x)+c);
+       
+       System.out.println("VERTEX "+vertex_y);
+        y_int = (a*0)+(b*0)+c;
+       System.out.println("y_int: "+y_int+"\n");
+   	
+   }
 
     public QuadraticScreen(){
         super();
+           
+        final NumberAxis xAxis1 = new NumberAxis();
+        final NumberAxis yAxis1= new NumberAxis();
+        
+        final NumberAxis xAxis2 = new NumberAxis();
+        final NumberAxis yAxis2 = new NumberAxis();
+        
+        final NumberAxis xAxis3 = new NumberAxis();
+        final NumberAxis yAxis3 = new NumberAxis();
+        
+        xAxis1.setLabel("X-axis");
+        yAxis1.setLabel("Y-axis");
+        
+        xAxis2.setLabel("X-axis");
+        yAxis2.setLabel("Y-axis");
+        
+        xAxis3.setLabel("X-axis");
+        yAxis3.setLabel("Y-axis");
+        
+          //creating the chart
+        final LineChart<Number,Number> lineChart = new LineChart<Number,Number>(xAxis1,yAxis1);//1
+ 
+        final LineChart<Number,Number> lineChart2 = new LineChart<Number,Number>(xAxis2,yAxis2);//2
+        
+        final LineChart<Number,Number> lineChart3 = new LineChart<Number,Number>(xAxis3,yAxis3);//3
+ 
+        lineChart.setPrefHeight(400);
+        lineChart.setPrefWidth(400);
+       
+        lineChart2.setPrefHeight(400);
+        lineChart2.setPrefWidth(400);
+        
+        lineChart3.setPrefHeight(400);
+        lineChart3.setPrefWidth(400);
+        
+       // lineChart.setTitle("Quadratic Plot 1");
+       // lineChart2.setTitle("Quadratic Plot 2");
 
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        XYChart.Series series2 = new XYChart.Series();
+        XYChart.Series series3 = new XYChart.Series();
+
+        series.setName("A");
+        series2.setName("B");
+        series3.setName("C");
+
+        generate_num();
+        System.out.println("The value of a: "+  a); 
+        System.out.println("The value of b: "+  b); 
+        System.out.println("The value of c: "+  c); 
+        System.out.println("The value of x: "+  x); 
+        System.out.println("The value of vertex_y: "+  vertex_y+"\n"); 
+        
+		series.getData().add(new XYChart.Data(x, vertex_y));
+        series.getData().add(new XYChart.Data(c, 0)); 
+        series.getData().add(new XYChart.Data(a, 0)); 
+
+        generate_num();
+        System.out.println("The value of a: "+  a); 
+        System.out.println("The value of b: "+  b); 
+        System.out.println("The value of c: "+  c); 
+        System.out.println("The value of x: "+  x); 
+        System.out.println("The value of vertex_y: "+  vertex_y); 
+
+        series2.getData().add(new XYChart.Data(x, vertex_y));
+        series2.getData().add(new XYChart.Data(c, 0)); 
+        series2.getData().add(new XYChart.Data(a, 0)); 
+
+        generate_num();
+        System.out.println("The value of a: "+  a); 
+        System.out.println("The value of b: "+  b); 
+        System.out.println("The value of c: "+  c); 
+        System.out.println("The value of x: "+  x); 
+        System.out.println("The value of vertex_y: "+  vertex_y); 
+
+        series3.getData().add(new XYChart.Data(x, vertex_y));
+        series3.getData().add(new XYChart.Data(c, 0)); 
+        series3.getData().add(new XYChart.Data(a, 0)); 
+        
+        lineChart.getData().add(series);
+        lineChart2.getData().add(series2);  
+        lineChart3.getData().add(series3);        
+
+        getChildren().addAll(lineChart);
+        getChildren().addAll(lineChart2); 
+        getChildren().addAll(lineChart3);  
+        
+        GridPane plot_grid = new GridPane();
+        
+        plot_grid.setVgap(30);
+        plot_grid.setHgap(50);
+
+        plot_grid.setLayoutX(10);
+        plot_grid.setLayoutY(20);
+        
+        plot_grid.setConstraints(lineChart, 0, 0);
+        plot_grid.setConstraints(lineChart2, 1, 0);
+        plot_grid.setConstraints(lineChart3, 2, 0);
+        
+        getChildren().add(plot_grid);
+
+        plot_grid.getChildren().addAll(lineChart,lineChart2,lineChart3);
+
+       
         //String answer = quadraticEquationRoot1(operand1.getCharacters(), operand2.getCharacters(), operand3.getCharacters());
 
         //submit.onMouseClickedProperty(root_result_1.setText());
@@ -117,7 +262,6 @@ public class QuadraticScreen extends MathGame{
         double operand2_buff =
         double operand2_buff = submit.onActionProperty(quadraticEquationRoots(operand1,operand2,operand3));
 */
-
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // label.setText("Accepted");
@@ -132,8 +276,6 @@ public class QuadraticScreen extends MathGame{
 
             }
         });
-
-
 /*
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -158,10 +300,10 @@ public class QuadraticScreen extends MathGame{
         grid.setHgap(30);
 
         result_grid.setLayoutX(750);
-        result_grid.setLayoutY(250);
+        result_grid.setLayoutY(450);
 
         grid.setLayoutX(250);
-        grid.setLayoutY(250);
+        grid.setLayoutY(450);
 
         getChildren().add(grid);
         getChildren().add(result_grid);
@@ -170,4 +312,5 @@ public class QuadraticScreen extends MathGame{
         result_grid.getChildren().addAll(root_result_1, root_result_2);
 
     }
+	
 }
