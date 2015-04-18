@@ -24,7 +24,6 @@ import static java.lang.Math.*;
 
 
 public class QuadraticScreen extends MathGame{
-
 	
     TextField operand1 = new TextField("0");
     TextField operand2 = new TextField("0");
@@ -100,7 +99,7 @@ public class QuadraticScreen extends MathGame{
     }
     
     public static void generate_num(){
-   	 //populating the series with data
+   	   //populating the series with data
        //f(x) = ax^2 + bx + c
        int max=10;
        int min= 0;
@@ -109,22 +108,21 @@ public class QuadraticScreen extends MathGame{
        int min1= -10;
        
        Random random = new Random();
-        a = random.nextInt(max - min + 1) + min;
+       a = random.nextInt(max - min + 1) + min;
        System.out.println("The value of a from method: "+  a); 
 
-        b = random.nextInt(max - min + 1) + min;
+       b = random.nextInt(max - min + 1) + min;
        System.out.println("The value of b from method: "+  b); 
 
-        c = random.nextInt(max1 - min1 + 1) + min1;
+       c = random.nextInt(max1 - min1 + 1) + min1;
        System.out.println("The value of c from method: "+  c); 
 
-   	////
-        x = (-(b/(2*a)));
+       x = (-(b/(2*a)));
        
        System.out.println("The value of x: "+  x); 
        
        vertex_y =((a*Math.pow(x,2))+(b*x)+c);
-               
+       
        System.out.println("VERTEX "+vertex_y);
         y_int = (a*0)+(b*0)+c;
        System.out.println("y_int: "+y_int+"\n");
@@ -278,8 +276,6 @@ public class QuadraticScreen extends MathGame{
 
             }
         });
-
-
 /*
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
