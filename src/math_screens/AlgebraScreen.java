@@ -172,18 +172,30 @@ public class AlgebraScreen extends MathGame {
         final StackPane tempPane;
         timeline.setCycleCount(Timeline.INDEFINITE);
         KeyFrame kf;
+        KeyFrame kf2;
         kf = new KeyFrame(Duration.millis(20), new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 for (int i = 0; i < circles.size(); i++) {
                     checkBounds(circles.get(i));
                     circleIntersection(circles.get(i));
-                    circles.get(i).pane.setTranslateX(circles.get(i).pane.getTranslateX() + circles.get(i).directionX * 5);
-                    circles.get(i).pane.setTranslateY(circles.get(i).pane.getTranslateY() + circles.get(i).directionY * 5);
+                    circles.get(i).pane.setTranslateX(circles.get(i).pane.getTranslateX() + circles.get(i).directionX * 1);
+                    circles.get(i).pane.setTranslateY(circles.get(i).pane.getTranslateY() + circles.get(i).directionY * 1);
                 }
 
             }
         });
-        timeline.getKeyFrames().add(kf);
+//        kf2 = new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
+//            public void handle(ActionEvent event) {
+//                for (int i = 0; i < circles.size(); i++) {
+//                    checkBounds(circles.get(i));
+//                    circleIntersection(circles.get(i));
+//                    circles.get(i).pane.setTranslateX(circles.get(i).pane.getTranslateX() + circles.get(i).directionX * 500);
+//                    circles.get(i).pane.setTranslateY(circles.get(i).pane.getTranslateY() + circles.get(i).directionY * 500);
+//                }
+//
+//            }
+//        });
+        timeline.getKeyFrames().addAll(kf);
     }
 
     private void createAnswers() {
