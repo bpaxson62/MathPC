@@ -18,7 +18,7 @@ import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import launch.Configurations;
-import Utilities.Utilities;
+import utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collections;

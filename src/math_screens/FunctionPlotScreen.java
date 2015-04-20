@@ -47,7 +47,7 @@ public class FunctionPlotScreen extends MathGame{
 ///
         final TextField function_field = new TextField("0");
         final TextField function_field2 = new TextField("0");
-        Button submit = new Button("Submit");
+        Button submit = new Button("tSubmit");
 
         final TextField function_field3 = new TextField("x");
         Button submit2 = new Button("Submit");
