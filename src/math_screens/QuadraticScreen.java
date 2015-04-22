@@ -35,11 +35,9 @@ public class QuadraticScreen extends MathGame{
     TextField root_result_2 = new TextField(null);
 
     Button submit = new Button("Submit");
+    
+    Button generate = new Button("Make");
 
-    Label label1 = new Label("Hi");
-    Label label2 = new Label("");
-    Label label3 = new Label("");
-    Label label4 = new Label("");
 
     static double root1=0;
     static double root2=0;
@@ -315,6 +313,9 @@ public class QuadraticScreen extends MathGame{
         submit.setStyle(Configurations.buttonStyle);
 
         submit.setPrefSize(200,100);
+        
+        generate.setStyle(Configurations.buttonStyle);
+        generate.setPrefSize(200,100);
 
         GridPane.setConstraints(operand1,0,0);
 
@@ -327,6 +328,9 @@ public class QuadraticScreen extends MathGame{
         GridPane.setConstraints(root_result_1, 0,0);
 
         GridPane.setConstraints(root_result_2, 0,1);
+        
+        GridPane.setConstraints(generate, 1,1);
+
 /*
         double operand1_buff = double.parseInt(operand1.getCharacters().toString());
         int number = Integer.parseInt(cs.toString());
@@ -346,9 +350,7 @@ public class QuadraticScreen extends MathGame{
                 root_result_1.setText(String.valueOf(get_root1()));
                 root_result_2.setText(String.valueOf(get_root2()));
                 
-            	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
-
-                
+            	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);               
                 if(get_root1()==c&&get_root2()==a){
                 	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
                 	System.out.println("CORRECT FOR GRAPH 1");
@@ -358,6 +360,7 @@ public class QuadraticScreen extends MathGame{
                 	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
                 	System.out.println("CORRECT FOR GRAPH 2");
                 }
+                
                 if(get_root1()==c3&&get_root2()==a3){
                 	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
                 	System.out.println("CORRECT FOR GRAPH 3");
@@ -371,9 +374,53 @@ public class QuadraticScreen extends MathGame{
 
                 System.out.println("Series  3 print " + series3.getData().get(1));//first part of graph c on y plane
                 System.out.println("Series  3 print " + series3.getData().get(2));//second part of graph c on y plane
-*/                	
+*/              
             }
         });
+        
+        generate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+
+            	  generate_num();
+                  System.out.println("The value of a: "+  a); 
+                  System.out.println("The value of b: "+  b); 
+                  System.out.println("The value of c: "+  c); 
+                  System.out.println("The value of x: "+  x); 
+                  System.out.println("The value of vertex_y: "+  vertex_y+"\n"); 
+                  
+          		series.getData().add(new XYChart.Data(x, vertex_y));
+                  series.getData().add(new XYChart.Data(c, 0)); 
+                  series.getData().add(new XYChart.Data(a, 0)); 
+
+                  generate_num2();
+                  System.out.println("The value of a: "+  a2); 
+                  System.out.println("The value of b: "+  b2); 
+                  System.out.println("The value of c: "+  c2); 
+                  System.out.println("The value of x: "+  x2); 
+                  System.out.println("The value of vertex_y: "+  vertex_y2); 
+
+                  series2.getData().add(new XYChart.Data(x2, vertex_y2));
+                  series2.getData().add(new XYChart.Data(c2, 0)); 
+                  series2.getData().add(new XYChart.Data(a2, 0)); 
+
+                  generate_num3();
+                  System.out.println("The value of a: "+  a3); 
+                  System.out.println("The value of b: "+  b3); 
+                  System.out.println("The value of c: "+  c3); 
+                  System.out.println("The value of x: "+  x3); 
+                  System.out.println("The value of vertex_y: "+  vertex_y3); 
+
+                  series3.getData().add(new XYChart.Data(x3, vertex_y3));
+                  series3.getData().add(new XYChart.Data(c3, 0)); 
+                  series3.getData().add(new XYChart.Data(a3, 0)); 
+                  
+                  lineChart.getData().add(series);
+                  lineChart2.getData().add(series2);  
+                  lineChart3.getData().add(series3);   
+            	
+            }
+        });
+        
 /*
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -407,7 +454,7 @@ public class QuadraticScreen extends MathGame{
         getChildren().add(result_grid);
 
         grid.getChildren().addAll(operand1, operand2, operand3, submit);
-        result_grid.getChildren().addAll(root_result_1, root_result_2);
+        result_grid.getChildren().addAll(root_result_1, root_result_2,generate);
 
     }
 	
