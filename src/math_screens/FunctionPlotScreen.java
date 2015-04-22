@@ -137,9 +137,7 @@ public class FunctionPlotScreen extends MathGame{
         text_grid4.setConstraints(t4, 0, 0);
         text_grid4.setConstraints(function_field5, 1, 1);
         text_grid4.setConstraints(submit4, 0, 1);
-        
-
-        
+               
 ///
         getChildren().add(grid);
         getChildren().add(text_grid);
@@ -161,7 +159,7 @@ public class FunctionPlotScreen extends MathGame{
 ///
         grid3.getChildren().addAll(function_field4,submit3);
         text_grid3.getChildren().addAll(t3);          
- ///
+///
         grid4.getChildren().addAll(function_field5,submit4);
         text_grid4.getChildren().addAll(t4);   
 ///

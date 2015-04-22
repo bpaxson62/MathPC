@@ -25,7 +25,8 @@ public final class Configurations  {
             "    -fx-background-insets: 0,1,2,3,0;\n" +
             "    -fx-text-fill: #654b00;\n" +
             "    -fx-font-weight: bold;\n" +
-            "    -fx-padding: 10 20 10 20;";
+            "    -fx-padding: 10 20 10 20;" +
+            "    -fx-font-size: 30pt;";
 
     public final static String backGroundStyle = " -fx-background-color:\n" +
             "    linear-gradient(#ffd65b, #e68400),\n" +

@@ -222,9 +222,9 @@ public class QuadraticScreen extends MathGame{
         GridPane plot_grid = new GridPane();
         
         plot_grid.setVgap(30);
-        plot_grid.setHgap(50);
+        plot_grid.setHgap(30);
 
-        plot_grid.setLayoutX(10);
+        plot_grid.setLayoutX(3);
         plot_grid.setLayoutY(20);
         
         plot_grid.setConstraints(lineChart, 0, 0);
@@ -234,7 +234,6 @@ public class QuadraticScreen extends MathGame{
         getChildren().add(plot_grid);
 
         plot_grid.getChildren().addAll(lineChart,lineChart2,lineChart3);
-
        
         //String answer = quadraticEquationRoot1(operand1.getCharacters(), operand2.getCharacters(), operand3.getCharacters());
 

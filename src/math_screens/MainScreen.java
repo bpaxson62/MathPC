@@ -7,8 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import launch.Configurations;
 import launch.Main;
-
-
+import javafx.scene.text.*;
 
 
 /**
@@ -34,9 +33,16 @@ public class MainScreen extends MathScreen {
         myGrid.setPadding(new Insets(150, 100, 150, 100));
         myGrid.setVgap(50);
         myGrid.setHgap(50);
+        
+        Text t = new Text(10, 50, "This is a test");
+        t.setFont(new Font(40));
+                
         algebraButton = new Button("Algebra");
+       // algebraButton.setStyle("-fx-font-size: 40pt;");
+        algebraButton.setFont(new Font(40));
+
         geometryButton = new Button("Geometry");
-        functionButton = new Button("Function Plot");
+        functionButton = new Button("Plotting");
         quadraticButton = new Button("Quadratic");
 
         algebraButton.setPrefHeight(150);
@@ -47,7 +53,7 @@ public class MainScreen extends MathScreen {
         functionButton.setPrefWidth(250);
         quadraticButton.setPrefHeight(150);
         quadraticButton.setPrefWidth(250);
-
+        
         EventHandler actionListener = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e){
