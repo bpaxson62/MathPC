@@ -45,7 +45,6 @@ public class QuadraticScreen extends MathGame{
     static double root2=0;
     static double discriminant=0;
 
-
     static double op1 =0;
     static double op2 =0;
     static double op3 =0;
@@ -56,6 +55,20 @@ public class QuadraticScreen extends MathGame{
     static double x=0;
     static double vertex_y=0;
     static double y_int=0;
+    
+    static double a2=0;
+    static double b2=0;
+    static double c2=0;
+    static double x2=0;
+    static double vertex_y2=0;
+    static double y_int2=0;
+    
+    static double a3=0;
+    static double b3=0;
+    static double c3=0;
+    static double x3=0;
+    static double vertex_y3=0;
+    static double y_int3=0;
 
 
     Double extractDouble(final String possibleNumber)
@@ -126,8 +139,68 @@ public class QuadraticScreen extends MathGame{
        System.out.println("VERTEX "+vertex_y);
         y_int = (a*0)+(b*0)+c;
        System.out.println("y_int: "+y_int+"\n");
-   	
    }
+    
+    public static void generate_num2(){
+    	   //populating the series with data
+        //f(x) = ax^2 + bx + c
+        int max=10;
+        int min= 0;
+        
+        int max1=0;
+        int min1= -10;
+        
+        Random random = new Random();
+        a2 = random.nextInt(max - min + 1) + min;
+        System.out.println("The value of a from method: "+  a2); 
+
+        b2 = random.nextInt(max - min + 1) + min;
+        System.out.println("The value of b from method: "+  b2); 
+
+        c2 = random.nextInt(max1 - min1 + 1) + min1;
+        System.out.println("The value of c from method: "+  c2); 
+
+        x2 = (-(b2/(2*a2)));
+        
+        System.out.println("The value of x: "+  x2); 
+        
+        vertex_y2 =((a2*Math.pow(x2,2))+(b*x2)+c2);
+        
+        System.out.println("VERTEX "+vertex_y2);
+         y_int = (a2*0)+(b2*0)+c;
+        System.out.println("y_int: "+y_int2+"\n");
+    }
+    
+    public static void generate_num3(){
+    	   //populating the series with data
+        //f(x) = ax^2 + bx + c
+        int max=10;
+        int min= 0;
+        
+        int max1=0;
+        int min1= -10;
+        
+        Random random = new Random();
+        a3 = random.nextInt(max - min + 1) + min;
+        System.out.println("The value of a from method: "+  a3); 
+
+        b3 = random.nextInt(max - min + 1) + min;
+        System.out.println("The value of b from method: "+  b3); 
+
+        c3 = random.nextInt(max1 - min1 + 1) + min1;
+        System.out.println("The value of c from method: "+  c3); 
+
+        x3 = (-(b3/(2*a3)));
+        
+        System.out.println("The value of x: "+  x3); 
+        
+        vertex_y3 =((a3*Math.pow(x3,2))+(b3*x3)+c3);
+        
+        System.out.println("VERTEX "+vertex_y3);
+         y_int3 = (a3*0)+(b3*0)+c3;
+        System.out.println("y_int: "+y_int3+"\n");
+    	
+    }
 
     public QuadraticScreen(){
         super();
@@ -189,27 +262,27 @@ public class QuadraticScreen extends MathGame{
         series.getData().add(new XYChart.Data(c, 0)); 
         series.getData().add(new XYChart.Data(a, 0)); 
 
-        generate_num();
-        System.out.println("The value of a: "+  a); 
-        System.out.println("The value of b: "+  b); 
-        System.out.println("The value of c: "+  c); 
-        System.out.println("The value of x: "+  x); 
-        System.out.println("The value of vertex_y: "+  vertex_y); 
+        generate_num2();
+        System.out.println("The value of a: "+  a2); 
+        System.out.println("The value of b: "+  b2); 
+        System.out.println("The value of c: "+  c2); 
+        System.out.println("The value of x: "+  x2); 
+        System.out.println("The value of vertex_y: "+  vertex_y2); 
 
-        series2.getData().add(new XYChart.Data(x, vertex_y));
-        series2.getData().add(new XYChart.Data(c, 0)); 
-        series2.getData().add(new XYChart.Data(a, 0)); 
+        series2.getData().add(new XYChart.Data(x2, vertex_y2));
+        series2.getData().add(new XYChart.Data(c2, 0)); 
+        series2.getData().add(new XYChart.Data(a2, 0)); 
 
-        generate_num();
-        System.out.println("The value of a: "+  a); 
-        System.out.println("The value of b: "+  b); 
-        System.out.println("The value of c: "+  c); 
-        System.out.println("The value of x: "+  x); 
-        System.out.println("The value of vertex_y: "+  vertex_y); 
+        generate_num3();
+        System.out.println("The value of a: "+  a3); 
+        System.out.println("The value of b: "+  b3); 
+        System.out.println("The value of c: "+  c3); 
+        System.out.println("The value of x: "+  x3); 
+        System.out.println("The value of vertex_y: "+  vertex_y3); 
 
-        series3.getData().add(new XYChart.Data(x, vertex_y));
-        series3.getData().add(new XYChart.Data(c, 0)); 
-        series3.getData().add(new XYChart.Data(a, 0)); 
+        series3.getData().add(new XYChart.Data(x3, vertex_y3));
+        series3.getData().add(new XYChart.Data(c3, 0)); 
+        series3.getData().add(new XYChart.Data(a3, 0)); 
         
         lineChart.getData().add(series);
         lineChart2.getData().add(series2);  
@@ -272,7 +345,33 @@ public class QuadraticScreen extends MathGame{
                 System.out.print(get_root1()+" "+get_root2());
                 root_result_1.setText(String.valueOf(get_root1()));
                 root_result_2.setText(String.valueOf(get_root2()));
+                
+            	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
 
+                
+                if(get_root1()==c&&get_root2()==a){
+                	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
+                	System.out.println("CORRECT FOR GRAPH 1");
+                }
+                
+                if(get_root1()==c2&&get_root2()==a2){
+                	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
+                	System.out.println("CORRECT FOR GRAPH 2");
+                }
+                if(get_root1()==c3&&get_root2()==a3){
+                	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
+                	System.out.println("CORRECT FOR GRAPH 3");
+                }       
+/*
+                System.out.println("Series 1 print " + series.getData().get(1));//first part of graph a on y plane
+                System.out.println("Series 1 print " + series.getData().get(2));//first part of graph a on y plane
+               
+                System.out.println("Series 2 print " + series2.getData().get(1));//first part of graph b on y plane
+                System.out.println("Series 2 print " + series2.getData().get(2));//first part of graph b on y plane
+
+                System.out.println("Series  3 print " + series3.getData().get(1));//first part of graph c on y plane
+                System.out.println("Series  3 print " + series3.getData().get(2));//second part of graph c on y plane
+*/                	
             }
         });
 /*
