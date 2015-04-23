@@ -44,6 +44,12 @@ public class FunctionPlotScreen extends MathGame{
         t4.setWrappingWidth(200);
         t4.setTextAlignment(TextAlignment.JUSTIFY);
         t4.setText("f(x)=|x|");
+        
+        Text t5 = new Text();
+        t5.setFont(new Font(40));
+        t5.setWrappingWidth(200);
+        t5.setTextAlignment(TextAlignment.JUSTIFY);
+        t5.setText("f(x)=ln(x)");
 ///
         final TextField function_field = new TextField("0");
         final TextField function_field2 = new TextField("0");
@@ -57,6 +63,9 @@ public class FunctionPlotScreen extends MathGame{
         
         final TextField function_field5 = new TextField("0");
         Button submit4 = new Button("Submit");
+        
+        final TextField function_field6 = new TextField("0");
+        Button submit5 = new Button("Submit");
 ///
         GridPane text_grid = new GridPane();
         GridPane grid = new GridPane();
@@ -69,6 +78,9 @@ public class FunctionPlotScreen extends MathGame{
         
         GridPane text_grid4 = new GridPane();
         GridPane grid4 = new GridPane();
+        
+        GridPane text_grid5 = new GridPane();
+        GridPane grid5 = new GridPane();
 ///
         grid.setVgap(10);
         grid.setHgap(50);
@@ -117,14 +129,25 @@ public class FunctionPlotScreen extends MathGame{
 
         text_grid4.setLayoutX(750);
         text_grid4.setLayoutY(400);   
-      ///
+///
+        grid5.setVgap(10);
+        grid5.setHgap(50);
+
+        grid5.setLayoutX(750);
+        grid5.setLayoutY(550);
+
+        text_grid5.setVgap(30);
+        text_grid5.setHgap(50);
+
+        text_grid5.setLayoutX(750);
+        text_grid5.setLayoutY(500);   
+ ///
         GridPane.setConstraints(t,0,0);
 
         GridPane.setConstraints(function_field,0,0);
         GridPane.setConstraints(function_field2,1,0);
         GridPane.setConstraints(submit,0,1);
-        ///
-        
+ ///
         text_grid2.setConstraints(t2, 0, 0);
         text_grid2.setConstraints(function_field3, 1, 1);
         text_grid2.setConstraints(submit2, 0, 1);
@@ -132,12 +155,14 @@ public class FunctionPlotScreen extends MathGame{
         text_grid3.setConstraints(t3, 0, 0);
         text_grid3.setConstraints(function_field4, 1, 1);
         text_grid3.setConstraints(submit3, 0, 1);
-        
 ///       
         text_grid4.setConstraints(t4, 0, 0);
         text_grid4.setConstraints(function_field5, 1, 1);
-        text_grid4.setConstraints(submit4, 0, 1);
-               
+        text_grid4.setConstraints(submit4, 0, 1);    
+///       
+        text_grid5.setConstraints(t5, 0, 2);
+        text_grid5.setConstraints(function_field6, 1, 1);
+        text_grid5.setConstraints(submit5, 0, 1);  
 ///
         getChildren().add(grid);
         getChildren().add(text_grid);
@@ -149,8 +174,11 @@ public class FunctionPlotScreen extends MathGame{
         getChildren().add(text_grid3);   
 ///
         getChildren().add(grid4);
-        getChildren().add(text_grid4);  
+        getChildren().add(text_grid4);
 ///
+        getChildren().add(grid5);
+        getChildren().add(text_grid5);  
+ ///
         grid2.getChildren().addAll(function_field3,submit2);
         text_grid2.getChildren().addAll(t2);  
 ///
@@ -162,6 +190,9 @@ public class FunctionPlotScreen extends MathGame{
 ///
         grid4.getChildren().addAll(function_field5,submit4);
         text_grid4.getChildren().addAll(t4);   
+///
+        grid5.getChildren().addAll(function_field6,submit5);
+        text_grid4.getChildren().addAll(t5);           
 ///
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
@@ -254,26 +285,47 @@ public class FunctionPlotScreen extends MathGame{
 
             }
         });
-        submit3.setOnAction(new EventHandler<ActionEvent>() {
+        submit4.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 // label.setText("Accepted");
 
-                double eq5 = Double.parseDouble(function_field5.getText());
+                double eq5 = Math.abs(Double.parseDouble(function_field5.getText()));
       
                 lineChart.setPrefHeight(700);
                 lineChart.setPrefWidth(700);
                 //lineChart.setTitle("Plotting Y equation");
                 //defining a series
                 XYChart.Series series = new XYChart.Series();
-                series.setName("f(x)=sqrt(x)");
+                series.setName("f(x)=|x|");
                 //populating the series with data
-                int n=0;
-                for  (int i=(int) eq5;i<15; i++){
-                	series.getData().add(new XYChart.Data(n,Math.abs(i)));
-                	n++;
+                for (int i=0;i<10; i++){
+                	series.getData().add(new XYChart.Data(i,eq5));
+                	
                 }
                // series.getData().add(new XYChart.Data(eq2, eq1+1));               
+                lineChart.getData().add(series);
+                getChildren().addAll(lineChart);
 
+            }
+        });
+        
+        submit5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                // label.setText("Accepted");
+
+                double eq6 = (Double.parseDouble(function_field6.getText()));
+      
+                lineChart.setPrefHeight(700);
+                lineChart.setPrefWidth(700);
+                //lineChart.setTitle("Plotting Y equation");
+                //defining a series
+                XYChart.Series series = new XYChart.Series();
+                series.setName("f(x)=ln(x)");
+                //populating the series with data
+                for (int i=0;i<10; i++){
+                	series.getData().add(new XYChart.Data(i,Math.log(eq6)));
+                }
+               // series.getData().add(new XYChart.Data(eq2, eq1+1));               
                 lineChart.getData().add(series);
                 getChildren().addAll(lineChart);
 

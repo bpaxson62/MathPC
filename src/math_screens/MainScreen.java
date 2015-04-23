@@ -87,8 +87,6 @@ public class MainScreen extends MathScreen {
         quadraticButton.setOnAction(actionListener);
         //algebraButton.setId();
 
-
-
         algebraButton.setStyle(Configurations.buttonStyle);
         geometryButton.setStyle(Configurations.buttonStyle);
         functionButton.setStyle(Configurations.buttonStyle);
