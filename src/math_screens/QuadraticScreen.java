@@ -232,9 +232,9 @@ public class QuadraticScreen extends MathGame{
        // lineChart2.setTitle("Quadratic Plot 2");
 
         //defining a series
-        XYChart.Series series = new XYChart.Series();
-        XYChart.Series series2 = new XYChart.Series();
-        XYChart.Series series3 = new XYChart.Series();
+        final XYChart.Series series = new XYChart.Series();
+        final XYChart.Series series2 = new XYChart.Series();
+        final XYChart.Series series3 = new XYChart.Series();
 
         series.setName("A");
         series2.setName("B");
