@@ -71,6 +71,10 @@ public class AlgebraScreen extends MathGame {
         stackScore.getChildren().addAll(scoreButton, scoreRectangle, myScoreGrid);
         stackScore.setTranslateX(Configurations.MAIN_SCREEN_WIDTH / 2.5);
         stackScore.setTranslateY(Configurations.MAIN_SCREEN_HEIGHT / 2.5);
+        Text text1;
+        Text text2;
+        Text text3;
+
         getChildren().add(stackScore);
         createLevel();
     }
@@ -200,8 +204,8 @@ public class AlgebraScreen extends MathGame {
 
     private void createAnswers() {
         Random rand = new Random(System.currentTimeMillis());
-        int x = rand.nextInt(99);
-        int z = rand.nextInt(99);
+        int x = rand.nextInt(9);
+        int z = rand.nextInt(9);
         int eqType = rand.nextInt(3);
         int myAnswer = 1;
 
