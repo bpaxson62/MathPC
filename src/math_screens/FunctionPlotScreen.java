@@ -8,7 +8,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-
 import javafx.scene.text.*;
 
 /**
@@ -53,9 +52,9 @@ public class FunctionPlotScreen extends MathGame{
 ///
         final TextField function_field = new TextField("0");
         final TextField function_field2 = new TextField("0");
-        Button submit = new Button("tSubmit");
+        Button submit = new Button("Submit");
 
-        final TextField function_field3 = new TextField("x");
+        final TextField function_field3 = new TextField("n");
         Button submit2 = new Button("Submit");
         
         final TextField function_field4 = new TextField("0");
@@ -223,8 +222,8 @@ public class FunctionPlotScreen extends MathGame{
                 XYChart.Series series = new XYChart.Series();
                 series.setName("f(x)=mx+b");
                 //populating the series with data
-                series.getData().add(new XYChart.Data(0, eq1));
-                series.getData().add(new XYChart.Data(eq2, eq1+1));               
+                series.getData().add(new XYChart.Data(0, eq2));
+                series.getData().add(new XYChart.Data(eq1, eq1+1));               
 
                 lineChart.getData().add(series);
                 getChildren().addAll(lineChart);
@@ -248,10 +247,10 @@ public class FunctionPlotScreen extends MathGame{
                 //lineChart.setTitle("Plotting Y equation");
                 //defining a series
                 XYChart.Series series = new XYChart.Series();
-                series.setName("f(x)=n^x");
+                series.setName("f(x)=n^x, enter n value");
                 //populating the series with data
                 for (int i=0;i<5; i++){
-                	series.getData().add(new XYChart.Data(i, i*eq3*i));
+                	series.getData().add(new XYChart.Data(i, Math.pow(eq3,i)));
                 }
                // series.getData().add(new XYChart.Data(eq2, eq1+1));               
 
@@ -261,7 +260,7 @@ public class FunctionPlotScreen extends MathGame{
             }
         });
         submit3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
+			@Override public void handle(ActionEvent e) {
                 // label.setText("Accepted");
 
                 double eq4 = Double.parseDouble(function_field4.getText());
@@ -274,15 +273,14 @@ public class FunctionPlotScreen extends MathGame{
                 series.setName("f(x)=sqrt(x)");
                 //populating the series with data
                 int n=0;
-                for  (int i=(int) eq4;i<15; i++){
-                	series.getData().add(new XYChart.Data(n,Math.sqrt(i)));
-                	n++;
+                for  (int i=0;i<10; i++){
+                	series.getData().add(new XYChart.Data(i,Math.sqrt(eq4)));
+                	
                 }
                // series.getData().add(new XYChart.Data(eq2, eq1+1));               
 
                 lineChart.getData().add(series);
                 getChildren().addAll(lineChart);
-
             }
         });
         submit4.setOnAction(new EventHandler<ActionEvent>() {

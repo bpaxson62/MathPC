@@ -377,7 +377,7 @@ public class QuadraticScreen extends MathGame{
 
                 	alert.showAndWait();
                 	
-                    for (int index=1;index<=9;index++){
+                    for (int index=0;index<=5;index++){
                         series.getData().remove(index);
                    }
 
@@ -394,7 +394,7 @@ public class QuadraticScreen extends MathGame{
 
                 	alert.showAndWait();
                 	
-                    for (int index=-1;index<=5;index++){
+                    for (int index=0;index<=5;index++){
                         series2.getData().remove(index);
                    }
 
@@ -410,7 +410,7 @@ public class QuadraticScreen extends MathGame{
 
                 	alert.showAndWait();
                 	
-                    for (int index=-1;index<=5;index++){
+                    for (int index=0;index<=5;index++){
                         series3.getData().remove(index);
                    }
 
