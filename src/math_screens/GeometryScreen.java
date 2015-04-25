@@ -12,6 +12,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import launch.Configurations;
@@ -35,8 +37,7 @@ public class GeometryScreen extends MathGame {
     private Text text3 = new Text();
     private ArrayList<String> equations = new ArrayList<String>();
 
-
-
+    
     public GeometryScreen() {
         String arr[] = new String[]{"(x−h)2+(y−k)2=r2","p = 2L + 2W","p = 4*Length"};
         for(String myEq : arr){
@@ -177,6 +178,8 @@ public class GeometryScreen extends MathGame {
                     for(int i =0; i<3;i++){
                         rectangles2.get(i).setStyle(Configurations.answers);
                         rectangles3.get(i).setText(myEquations[i]);
+                        rectangles3.get(i).setFont(Font.font("Verdana", FontWeight.BOLD, 27));
+
                     }
 
 
