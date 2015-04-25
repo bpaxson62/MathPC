@@ -16,9 +16,9 @@ import java.util.Random;
 
 public class QuadraticScreen extends MathGame{
 
-    TextField operand1 = new TextField("0");
-    TextField operand2 = new TextField("0");
-    TextField operand3 = new TextField("0");
+    TextField operand1 = new TextField("a");
+    TextField operand2 = new TextField("b");
+    TextField operand3 = new TextField("c");
 
     //TextField operand1 = TextFieldBuilder.create().promptText("Enter Coefficient A").build();
 

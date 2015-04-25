@@ -15,10 +15,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import launch.Configurations;
-import utilities.Utilities;
+import Utilities.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,9 +45,12 @@ public class AlgebraScreen extends MathGame {
     private Text scoreText;
     private Integer answer = 0;
     private Text myEquationText;
+    
     private Rectangle scoreRectangle;
     private Button scoreButton;
 
+    
+    
     //    private Button scoreRectangle;
     public AlgebraScreen() {
         score = 0;
@@ -88,6 +93,7 @@ public class AlgebraScreen extends MathGame {
         getChildren().addAll(panes);
 
         myScoreEq.setText(myEquation);
+        myScoreEq.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
         play();
     }
 
@@ -138,6 +144,8 @@ public class AlgebraScreen extends MathGame {
             myText = new Text();
             myText.setText(answers[i].toString());
             myText.setPickOnBounds(false);
+            myText.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+
 
 
             stack.getChildren().addAll(circle, myText);

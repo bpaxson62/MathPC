@@ -27,8 +27,7 @@ public class MainScreen extends MathScreen {
 
 
         GridPane myGrid = new GridPane();
-        myGrid.setPrefSize(Configurations.MAIN_SCREEN_WIDTH + 2* Configurations.WINDOW_BOARDER,
-                Configurations.MAIN_SCREEN_HEIGHT + 2*Configurations.WINDOW_BOARDER);
+        myGrid.setPrefSize(Configurations.MAIN_SCREEN_WIDTH *2+ 2* Configurations.WINDOW_BOARDER, Configurations.MAIN_SCREEN_HEIGHT*2 + 2*Configurations.WINDOW_BOARDER);
 
         myGrid.setPadding(new Insets(150, 100, 150, 100));
         myGrid.setVgap(50);
