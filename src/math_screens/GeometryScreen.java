@@ -107,13 +107,13 @@ public class GeometryScreen extends MathGame {
                     }
                 }
                 System.out.println("event " + event.getX());
-                if(event.getX()<15 && event.getX() > -15){
+                if(event.getX()<40 && event.getX() > -40){
                     getShape.direction= new int[]{0,-10};
                 }
-                if(event.getX() <-30){
+                if(event.getX() <-40){
                     getShape.direction= new int[]{-10,-10};
                 }
-                if(event.getX()>30){
+                if(event.getX()>40){
                     getShape.direction= new int[]{10,-10};
                 };
 //                circle.direction = new int[]{0, 1}
