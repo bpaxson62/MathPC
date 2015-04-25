@@ -31,7 +31,7 @@ public class QuadraticScreen extends MathGame{
 
     Button submit = new Button("Submit");
 
-    Button generate = new Button("Make");
+    Button generate = new Button("Hint");
 
 
     static double root1=0;
@@ -105,6 +105,8 @@ public class QuadraticScreen extends MathGame{
     }
 
     public static void generate_num(){
+    	
+   
    	   //populating the series with data
        //f(x) = ax^2 + bx + c
        /*
@@ -374,6 +376,12 @@ public class QuadraticScreen extends MathGame{
                 	alert.setContentText("Graph A is correct!");
 
                 	alert.showAndWait();
+                	
+                    for (int index=1;index<=9;index++){
+                        series.getData().remove(index);
+                   }
+
+                    series.getData().removeAll();
                 	 
                 }else if(op1==1&&op2==-2&&op3==-3){
                 	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
@@ -385,6 +393,12 @@ public class QuadraticScreen extends MathGame{
                 	alert.setContentText("Graph B is correct!");
 
                 	alert.showAndWait();
+                	
+                    for (int index=-1;index<=5;index++){
+                        series2.getData().remove(index);
+                   }
+
+                    series2.getData().removeAll();
                 }else if(op1==2&&op2==-8&&op3==6){
                 	//System.out.println("get root1 "+ get_root1() +"get_root2() "+ get_root2() + "c "+ c +"a "+a);
                  	System.out.println("CORRECT FOR GRAPH 3");
@@ -395,6 +409,12 @@ public class QuadraticScreen extends MathGame{
                 	alert.setContentText("Graph C is correct!");
 
                 	alert.showAndWait();
+                	
+                    for (int index=-1;index<=5;index++){
+                        series3.getData().remove(index);
+                   }
+
+                    series3.getData().removeAll();
                 }else{
                 	Alert alert = new Alert(AlertType.ERROR);
                 	alert.setTitle("Incorrect Answers");
@@ -419,55 +439,12 @@ public class QuadraticScreen extends MathGame{
         generate.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
 
-            	  //generate_num();
-                  System.out.println("The value of a: "+  a);
-                  System.out.println("The value of b: "+  b);
-                  System.out.println("The value of c: "+  c);
-                  System.out.println("The value of x: "+  x);
-                  System.out.println("The value of vertex_y: "+  vertex_y+"\n");
-                 //a=1 b=12 c=32
-                  x=-6;
-                  vertex_y=-4;
-                  c=-8;
-                  a=-4;
-          		  series.getData().add(new XYChart.Data(x, vertex_y));
-                  series.getData().add(new XYChart.Data(c, 0));
-                  series.getData().add(new XYChart.Data(a, 0));
+            	Alert alert = new Alert(AlertType.INFORMATION);
+            	alert.setTitle("Hint");
+            	alert.setHeaderText(null);
+            	alert.setContentText("(-b(-/+)sqrt((b^2)-4*a*c))/2a");
 
-                 // generate_num2();
-                  //a=1 b=-2 c=-3
-                  x2=1;
-                  vertex_y2=-4;
-                  c2=-1;
-                  a2=3;
-                  System.out.println("The value of a: "+  a2);
-                  System.out.println("The value of b: "+  b2);
-                  System.out.println("The value of c: "+  c2);
-                  System.out.println("The value of x: "+  x2);
-                  System.out.println("The value of vertex_y: "+  vertex_y2);
-
-                  series2.getData().add(new XYChart.Data(x2, vertex_y2));
-                  series2.getData().add(new XYChart.Data(c2, 0));
-                  series2.getData().add(new XYChart.Data(a2, 0));
-
-                  //generate_num3();
-                  x3=1;
-                  vertex_y3=-4;
-                  c3=-1;
-                  a3=3;
-                  System.out.println("The value of a: "+  a3);
-                  System.out.println("The value of b: "+  b3);
-                  System.out.println("The value of c: "+  c3);
-                  System.out.println("The value of x: "+  x3);
-                  System.out.println("The value of vertex_y: "+  vertex_y3);
-
-                  series3.getData().add(new XYChart.Data(x3, vertex_y3));
-                  series3.getData().add(new XYChart.Data(c3, 0));
-                  series3.getData().add(new XYChart.Data(a3, 0));
-
-                  lineChart.getData().add(series);
-                  lineChart2.getData().add(series2);
-                  lineChart3.getData().add(series3);
+            	alert.showAndWait();
 
             }
         });
